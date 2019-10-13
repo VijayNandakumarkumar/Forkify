@@ -29,3 +29,10 @@ elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     controlSearch();
 });
+
+elements.searchResPages.addEventListener('click', e => {
+    const target = e.target.closest('.btn-inline')
+    searchView.clearResultList();
+    const page = parseInt(target.dataset.goto, 10);
+    searchView.renderResult(state.search.result, page);
+})
